@@ -125,16 +125,25 @@ The order book is abstracted behind an [`IOrderBook`](file:///home/harshil-shah/
 
 ## Sample Run Outputs
 
-### Deliverable A (`market_data_spot_BTCUSDT_2026-10-12.csv`)
+Per the assignment specification (Page 3 & 5), streaming `*.csv` files are excluded from Git repository history via `.gitignore` to prevent repository bloat. 
+
+The complete, full-length 90-second capture files (3,350 events) are attached directly to the **[v1.0.0 GitHub Release](../../releases/tag/v1.0.0)**:
+- `market_data_spot_BTCUSDT_2026-10-11.csv` (Deliverable A — Audit Log)
+- `market_data_spot_BTCUSDT_2026-10-11_orderbook.csv` (Deliverable B — Order Book Snapshots)
+
+Below are truncated previews of each deliverable from that run:
+
+### Deliverable A (`market_data_spot_BTCUSDT_2026-10-11.csv`)
 ```csv
 recv_tsec,recv_tnsec,venue,stream_kind,shard_id,conn_epoch,conn_seq,symbol,payload_json
-1791659130,485815001,spot,depth5,0,1,1,BTCUSDT,"{""lastUpdateId"":101270064603,""bids"":[[""83034.01000000"",""6.80757000""],[""83034.00000000"",""0.02655000""]],""asks"":[[""83034.02000000"",""4.65486000""],[""83034.03000000"",""0.11187000""]]}"
-1791659130,485881954,spot,depth_diff,0,1,2,BTCUSDT,"{""e"":""depthUpdate"",""E"":1791659130114,""s"":""BTCUSDT"",""U"":101270064601,""u"":101270064603,""b"":[],""a"":[[""83034.02000000"",""4.65486000""]]}"
+1791749121,172109693,spot,depth5,0,1,1,BTCUSDT,"{""lastUpdateId"":101278912401,""bids"":[[""84100.02000000"",""3.38235000""],[""84100.01000000"",""0.12694000""]],""asks"":[[""84100.03000000"",""1.56346000""],[""84100.04000000"",""0.00047000""]]}"
+1791749121,172193411,spot,depth_diff,0,1,2,BTCUSDT,"{""e"":""depthUpdate"",""E"":1791749121114,""s"":""BTCUSDT"",""U"":101278912398,""u"":101278912401,""b"":[],""a"":[[""84100.03000000"",""1.56346000""]]}"
 ```
 
-### Deliverable B (`market_data_spot_BTCUSDT_2026-10-12_orderbook.csv`)
+### Deliverable B (`market_data_spot_BTCUSDT_2026-10-11_orderbook.csv`)
 ```csv
 tsec,tnsec,seqNo,id,type,side,bid0,bid1,bid2,bid3,bid4,bid_size0,bid_size1,bid_size2,bid_size3,bid_size4,ask0,ask1,ask2,ask3,ask4,ask_size0,ask_size1,ask_size2,ask_size3,ask_size4
-1791659130,485815001,1,1,S,N,8303401000000,8303400000000,8303399000000,8303398000000,8303388000000,680757000,2655000,13000,120000,60000,8303402000000,8303403000000,8303404000000,8303405000000,8303406000000,465486000,11187000,13000,14000,3875000
-1791659130,485881954,2,2,D,A,8303401000000,8303400000000,8303399000000,8303398000000,8303388000000,680757000,2655000,13000,120000,60000,8303402000000,8303403000000,8303404000000,8303405000000,8303406000000,465486000,11187000,13000,14000,3875000
+1791749121,172109693,1,1,S,N,8410002000000,8410001000000,8410000000000,8409998000000,8409975000000,338235000,12694000,20191000,705000,6000,8410003000000,8410004000000,8410005000000,8410035000000,8410118000000,156346000,47000,12000,8000,7000
+1791749121,172193411,2,2,D,S,8410002000000,8410001000000,8410000000000,8409998000000,8409975000000,338235000,12694000,20191000,705000,6000,8410003000000,8410004000000,8410005000000,8410035000000,8410118000000,156346000,47000,12000,8000,7000
 ```
+
